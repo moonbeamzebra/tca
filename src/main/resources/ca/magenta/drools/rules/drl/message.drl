@@ -1,0 +1,38 @@
+package ca.magenta.krr.fact
+
+import ca.magenta.model.Message;
+import ca.magenta.model.MappedMsg;
+
+rule "Message"
+salience -999
+    when
+        message : Message(    )
+    then
+      System.out.println( "Got Message: [" + message.toString() + "]" );
+      retract(message);
+end
+
+rule "AlloT"
+salience 0
+    when
+        message: MappedMsg( getPayload().contains("allo")   )
+    then
+        System.out.println( "AlloT Matched: [" + message.toString() + "]" );
+end
+
+
+rule "Allo"
+salience 0
+    when
+        mappedMsg : MappedMsg( payload.contains("allo"), payload : payload )
+  then
+      System.out.println( "Allo Matched: [" + payload + "]" );
+end
+
+rule "Bonjour"
+salience 0
+  when
+      MappedMsg( payload.contains("bonjour"), payload : payload )
+  then
+      System.out.println( "Bonjour Matched: [" + payload + "]" );
+end

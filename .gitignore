@@ -1,0 +1,15 @@
+target/
+~$*
+dump.txt
+.idea/*
+
+.DS_Store
+build.gradle
+gradle/*
+gradlew
+gradlew.bat
+manifest.yml
+mvnw
+mvnw.cmd
+pom.xml
+tca.iml
