@@ -1,4 +1,4 @@
-package ca.magenta.hello;
+package ca.magenta.tca.hello;
 
 public class Greeting {
 

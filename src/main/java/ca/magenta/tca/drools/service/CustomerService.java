@@ -1,9 +1,8 @@
-package ca.magenta.drools.service;
+package ca.magenta.tca.drools.service;
 
-import ca.magenta.drools.config.DroolsConfiguration;
-import ca.magenta.model.Customer;
-import ca.magenta.model.MappedMsg;
-import ca.magenta.model.Message;
+import ca.magenta.tca.drools.config.DroolsConfiguration;
+import ca.magenta.tca.model.Customer;
+import ca.magenta.tca.fact.category.Message;
 import org.kie.api.runtime.KieSession;
 import org.springframework.stereotype.Service;
 

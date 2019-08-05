@@ -1,8 +1,8 @@
-package ca.magenta.controller;
+package ca.magenta.tca.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import ca.magenta.hello.Greeting;
+import ca.magenta.tca.hello.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

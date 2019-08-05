@@ -1,11 +1,12 @@
-package ca.magenta.model;
+package ca.magenta.tca.fact;
 
+import ca.magenta.tca.fact.category.Message;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.Map;
 
-public class MappedMsg implements Message {
+public class MappedMsg implements Message, Fact {
 
     final private String payload;
     final private Map<String, Object> mapped;
@@ -29,5 +30,10 @@ public class MappedMsg implements Message {
                 "payload='" + payload + '\'' +
                 ", mapped=" + mapped +
                 '}';
+    }
+
+    @Override
+    public String toString(boolean pretty) {
+        return toString();
     }
 }

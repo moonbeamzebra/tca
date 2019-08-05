@@ -1,6 +1,6 @@
-package ca.magenta.drools.service;
+package ca.magenta.tca.drools.service;
 
-import ca.magenta.model.MappedMsg;
+import ca.magenta.tca.fact.MappedMsg;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,13 +26,32 @@ public class AlloBonjourTest {
             MappedMsg mappedMsg2 = new MappedMsg(mapper, "{ \"mymsg\" : \"bonjour\" }");
 
             service.insertMessage(mappedMsg1);
-            service.insertMessage(mappedMsg2);
+            service.insertMessage(mappedMsg1);
+//            service.insertFact(mappedMsg1);
+//            service.insertFact(mappedMsg2);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
+
+    //    @Test
+//    public void testDiscount() {
+//        Customer customer1 = new Customer("Jojo");
+//        customer1.setAge(4);
+//
+//        Customer customer2 = new Customer("JP");
+//        customer2.setAge(1);
+//
+//        service.insertCustomer(customer1);
+//        service.insertCustomer(customer2);
+//
+//        System.out.println("Allowed discount Jojo: " + customer1.getDiscount());
+//        System.out.println("Allowed discount JP: " +customer2.getDiscount());
+//
+//        assertEquals(25, customer1.getDiscount());
+//        assertEquals(15, customer2.getDiscount());
+//    }
+
 
 }

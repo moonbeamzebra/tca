@@ -1,0 +1,6 @@
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+<kbase name="StreamKB" eventProcessingMode="stream"  packages="ca.magenta.tca.event, ca.magenta.tca.fact, ca.magenta.tca.drools.rules.drl, ca.magenta.tca.drools.rules.xls">
+    <ksession name="StreamKS"/>
+</kbase>
+</kmodule>
+

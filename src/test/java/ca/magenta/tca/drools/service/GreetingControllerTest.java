@@ -1,4 +1,4 @@
-package ca.magenta.drools.service;
+package ca.magenta.tca.drools.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

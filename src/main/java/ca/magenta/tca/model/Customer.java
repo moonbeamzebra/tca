@@ -1,4 +1,4 @@
-package ca.magenta.model;
+package ca.magenta.tca.model;
 
 public class Customer {
 

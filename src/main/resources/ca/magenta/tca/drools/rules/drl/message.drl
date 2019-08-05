@@ -1,7 +1,7 @@
-package ca.magenta.krr.fact
+package ca.magenta.tca.drools.rules.drl
 
-import ca.magenta.model.Message;
-import ca.magenta.model.MappedMsg;
+import ca.magenta.tca.fact.category.Message;
+import ca.magenta.tca.fact.MappedMsg;
 
 rule "Message"
 salience -999

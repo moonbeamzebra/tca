@@ -1,5 +1,6 @@
-package ca.magenta.drools.config;
+package ca.magenta.tca.drools.config;
 
+import ca.magenta.tca.common.KS;
 import org.kie.api.KieServices;
 import org.kie.api.builder.*;
 import org.kie.api.runtime.KieContainer;
@@ -12,8 +13,8 @@ import java.util.List;
 
 public class DroolsConfiguration {
 
-    private static final String XLS_RULES_PATH = "ca/magenta/drools/rules/xls/";
-    private static final String DRL_RULES_PATH = "ca/magenta/drools/rules/drl/";
+    private static final String XLS_RULES_PATH = "ca/magenta/tca/drools/rules/xls/";
+    private static final String DRL_RULES_PATH = "ca/magenta/tca/drools/rules/drl/";
     private KieServices kieServices=KieServices.Factory.get();
 
     private  KieFileSystem getKieFileSystem() throws IOException{
@@ -48,20 +49,28 @@ public class DroolsConfiguration {
         });
     }
 
+//    public KieSession getKieSession(){
+//        getKieRepository();
+//        KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
+//        kieFileSystem.write(ResourceFactory.newClassPathResource(XLS_RULES_PATH + "rules.xls"));
+//        kieFileSystem.write(ResourceFactory.newClassPathResource(DRL_RULES_PATH + "message.drl"));
+//
+//        KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
+//        kb.buildAll();
+//
+//        KieModule kieModule = kb.getKieModule();
+//
+//        KieContainer kContainer = kieServices.newKieContainer(kieModule.getReleaseId());
+//
+//        return kContainer.newKieSession();
+//
+//    }
     public KieSession getKieSession(){
-        getKieRepository();
-        KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-        kieFileSystem.write(ResourceFactory.newClassPathResource(XLS_RULES_PATH + "rules.xls"));
-        kieFileSystem.write(ResourceFactory.newClassPathResource(DRL_RULES_PATH + "message.drl"));
 
-        KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
-        kb.buildAll();
+        KS ks = new KS("StreamKS");
 
-        KieModule kieModule = kb.getKieModule();
 
-        KieContainer kContainer = kieServices.newKieContainer(kieModule.getReleaseId());
-
-        return kContainer.newKieSession();
+        return ks.getKieSession();
 
     }
 
