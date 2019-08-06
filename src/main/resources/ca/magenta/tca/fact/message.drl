@@ -1,23 +1,31 @@
-package ca.magenta.tca.drools.rules.drl
+package ca.magenta.tca.fact
 
+import ca.magenta.tca.drools.service.TcaService;
 import ca.magenta.tca.fact.category.Message;
-import ca.magenta.tca.fact.MappedMsg;
+
+declare Message
+	@role( event )
+end
+
+declare MappedMsg
+	@role( event )
+end
 
 rule "Message"
 salience -999
     when
         message : Message(    )
     then
-      System.out.println( "Got Message: [" + message.toString() + "]" );
-      retract(message);
+      TcaService.getLogger().info("Got Message: [{}]",message.toString());
 end
 
 rule "AlloT"
 salience 0
     when
-        message: MappedMsg( getPayload().contains("allo")   )
+        message: MappedMsg( payloadContains("allo")   )
     then
         System.out.println( "AlloT Matched: [" + message.toString() + "]" );
+      TcaService.getLogger().info("Got Message: [{}]",message.toString());
 end
 
 

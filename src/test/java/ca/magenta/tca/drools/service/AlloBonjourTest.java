@@ -15,8 +15,10 @@ import java.io.IOException;
 public class AlloBonjourTest {
 
 
+//    @Autowired
+//    CustomerService service;
     @Autowired
-    CustomerService service;
+    TcaService service;
 
     @Test
     public void testAlloBonjour() {
@@ -25,10 +27,10 @@ public class AlloBonjourTest {
             MappedMsg mappedMsg1 = new MappedMsg(mapper, "{ \"mymsg\" : \"allo\" }");
             MappedMsg mappedMsg2 = new MappedMsg(mapper, "{ \"mymsg\" : \"bonjour\" }");
 
-            service.insertMessage(mappedMsg1);
-            service.insertMessage(mappedMsg1);
-//            service.insertFact(mappedMsg1);
-//            service.insertFact(mappedMsg2);
+            service.insertFact(mappedMsg1);
+            service.insertFact(mappedMsg2);
+
+            service.dumpFacts();
 
         } catch (IOException e) {
             e.printStackTrace();

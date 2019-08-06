@@ -16,6 +16,12 @@ public class MappedMsg implements Message, Fact {
         this.mapped = mapper.readValue(payload, Map.class);
     }
 
+    public boolean payloadContains(String s)
+    {
+        return payload.contains(s);
+
+    }
+
     public String getPayload() {
         return payload;
     }
